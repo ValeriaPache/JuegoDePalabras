@@ -1,0 +1,88 @@
+.containerBody {
+    width: 90%;
+    height: 500px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #4b0082;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+body > .containerPantallaInicio{
+    width: 90%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerTittlle{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerFhrases{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerButtom{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerImg{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-end;
+}
+
+
+/*                                        */
+
+
+
+
+
+
+
+
+
+button {
+    background-color: #ff1493;
+    width: 50%;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 200px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ff69b4;
+}
+
+
+/*
+#pantallaInicio, #pantallaJugadores, #pantallaJuego, #pantallaResultados {
+    *margin-top: 50px;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+}*/
