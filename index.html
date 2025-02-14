@@ -31,7 +31,20 @@
                 <button onclick="iniciarJuego(3)">3</button>
                 <button onclick="iniciarJuego(4)">4</button>
             </div>
-        </div>   
+        </div>
+        
+        <div id="pantallaJuego" style="display: none;" class="screenGame">
+            <h2 class="tittlePlayerGame">JUGADOR <span id="jugadorActual"></span></h2>
+            <p class="wordGame">LETRA: <span id="letraActual"></span></p>
+            <p class="timeGame">Tiempo restante: <span id="tiempoRestante">60</span> segundos</p>
+            <div class="containerInputGame">
+                <input type="text" id="palabra" placeholder="Escribe una palabra">
+            </div>
+            <div class="buttonGame" >
+               <button onclick="registrarPalabra()">AGREGAR PALABRA</button> 
+            </div>
+            
+        </div>
     <script src="index.js"></script>
 </body>
 </html>
