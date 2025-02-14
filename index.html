@@ -7,21 +7,31 @@
     <link rel="stylesheet" href="Style.css">
 </head>
 <body class="containerBody">
-    <section class="containerPantallaInicio">
-        <div class="pantallaInicio">
-            <div class="containerTittlle">
+        <div class="screenStart" id="pantallaInicio">
+            <div class="containerTittlleStart">
                <h1>STOP MODERNO</h1> 
             </div>
-            <div class="containerFhrases">
+            <div class="containerFhrasesStart">
                 <p>¡JUEGA STOP MÁS FÁCIL Y SIN TRAMPAS!</p>
             </div>
-            <div class="containerButtom">
+            <div class="containerButtomStart">
                 <button onclick="mostrarPantallaJugadores()">JUGAR</button>
             </div>
-            <div class="containerImg">
+            <div class="containerImgStart">
                 <img src="Assets/icons/ROBOT PURPLE.png" alt="Robot">
             </div>  
         </div>
-    </section>
+
+        <div id="pantallaJugadores" style="display: none;" class="screenPlayers">
+            <div class="containerTittlePlayers">
+               <h2 class="namePlayers">JUGADORES</h2> 
+            </div>
+            <div class="containerButtomPlayers">
+                <button onclick="iniciarJuego(2)">2</button>
+                <button onclick="iniciarJuego(3)">3</button>
+                <button onclick="iniciarJuego(4)">4</button>
+            </div>
+        </div>   
+    <script src="index.js"></script>
 </body>
 </html>
