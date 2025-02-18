@@ -1,93 +1,93 @@
-let jugadores = 0;
-let jugadorActual = 1;
-let tiempoRestante = 60;
-let palabras = {};
-let intervaloTiempo;
-let letraActual = '';
+let players = 0;
+let currentPlayer = 1;
+let remainingTime = 60;
+let words = {};
+let timeInterval;
+let currentLetter = '';
 
-const letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+const letter = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 
-function mostrarPantallaJugadores() {
-    document.getElementById("pantallaInicio").style.display = "none";
-    document.getElementById("pantallaJugadores").style.display = "block";
+function showPlayersScreen() {
+    document.getElementById("homeScreen").style.display = "none";
+    document.getElementById("playersScreen").style.display = "block";
 }
 
-function iniciarJuego(numJugadores) {
-    jugadores = numJugadores;
-    palabras = {};
-    for (let i = 1; i <= jugadores; i++) {
-        palabras[i] = [];
+function startGame(numPlayers) {
+    players = numPlayers;
+    words = {};
+    for (let i = 1; i <= players; i++) {
+        words[i] = [];
     }
-    jugadorActual = 1;
-    mostrarPantallaJuego();
+    currentPlayer = 1;
+    showGameScreen();
 }
 
-function mostrarPantallaJuego() {
-    document.getElementById("pantallaJugadores").style.display = "none";
-    document.getElementById("pantallaJuego").style.display = "block";
+function showGameScreen() {
+    document.getElementById("playersScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
     
-    letraActual = letras.charAt(Math.floor(Math.random() * letras.length));
-    document.getElementById("letraActual").innerText = letraActual;
-    document.getElementById("jugadorActual").innerText = jugadorActual;
-    document.getElementById("palabra").value = "";
+    currentLetter = letter.charAt(Math.floor(Math.random() * letter.length));
+    document.getElementById("currentLette").innerText = currentLetter;
+    document.getElementById("currentPlayer").innerText = currentPlayer;
+    document.getElementById("word").value = "";
     
-    tiempoRestante = 60;
-    document.getElementById("tiempoRestante").innerText = tiempoRestante;
+    remainingTime = 60;
+    document.getElementById("remainingTime").innerText = remainingTime;
     
-    if (intervaloTiempo) clearInterval(intervaloTiempo);
+    if (timeInterval) clearInterval(timeInterval);
     
-    intervaloTiempo = setInterval(() => {
-        tiempoRestante--;
-        document.getElementById("tiempoRestante").innerText = tiempoRestante;
-        if (tiempoRestante === 0) {
-            clearInterval(intervaloTiempo);
-            siguienteJugador();
+    timeInterval = setInterval(() => {
+        remainingTime--;
+        document.getElementById("remainingTime").innerText = remainingTime;
+        if (remainingTime === 0) {
+            clearInterval(timeInterval);
+            nextPlayer();
         }
     }, 1000);
 }
 
-function registrarPalabra() {
-    let palabra = document.getElementById("palabra").value.trim().toUpperCase();
-    if (palabra && palabra.startsWith(letraActual)) {
-        palabras[jugadorActual].push(palabra);
-        document.getElementById("palabra").value = "";
+function registerWord() {
+    let word = document.getElementById("word").value.trim().toUpperCase();
+    if (word && word.startsWith(currentLetter)) {
+        words[currentPlayer].push(word);
+        document.getElementById("word").value = "";
     }
 }
 
-function siguienteJugador() {
-    if (jugadorActual < jugadores) {
-        jugadorActual++;
-        mostrarPantallaJuego();
+function nextPlayer() {
+    if (currentPlayer < players) {
+        currentPlayer++;
+        showGameScreen();
     } else {
-        mostrarResultados();
+        ShowResults();
     }
 }
-function mostrarResultados() {
-    document.getElementById("pantallaJuego").style.display = "none";
-    document.getElementById("pantallaResultados").style.display = "block";
+function ShowResults() {
+    document.getElementById("gameScreen").style.display = "none";
+    document.getElementById("resultScreen").style.display = "block";
     
-    let resultadosDiv = document.getElementById("resultados");
-    resultadosDiv.innerHTML = "";
+    let resultDiv = document.getElementById("results");
+    resultDiv.innerHTML = "";
     
-    let maxPalabras = 0;
-    let ganador = "";
+    let maxWords = 0;
+    let winner = "";
 
-    for (let i = 1; i <= jugadores; i++) {
-        let lista = `<h3>Jugador ${i}</h3>`;
-        lista += `<p>${palabras[i].join(", ")}</p>`;
-        lista += `<p>Total: ${palabras[i].length} palabras</p>`;
-        resultadosDiv.innerHTML += lista;
+    for (let i = 1; i <= players; i++) {
+        let list = `<h3>Jugador ${i}</h3>`;
+        list += `<p>${words[i].join(", ")}</p>`;
+        list += `<p>Total: ${words[i].length} palabras</p>`;
+        resultDiv.innerHTML += list;
 
-        if (palabras[i].length > maxPalabras) {
-            maxPalabras = palabras[i].length;
-            ganador = `Jugador ${i}`;
+        if (words[i].length > maxWords) {
+            maxWords = words[i].length;
+            winner = `Jugador ${i}`;
         }
     }
     
-    resultadosDiv.innerHTML += `<h2>GANADOR: ${ganador}</h2>`;
+    resultDiv.innerHTML += `<h2>GANADOR: ${winner}</h2>`;
 }
 
-function reiniciarJuego() {
-    document.getElementById("pantallaResultados").style.display = "none";
-    document.getElementById("pantallaInicio").style.display = "block";
+function restartGame() {
+    document.getElementById("resultScreen").style.display = "none";
+    document.getElementById("homeScreen").style.display = "block";
 }
