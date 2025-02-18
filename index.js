@@ -27,7 +27,7 @@ function showGameScreen() {
     document.getElementById("gameScreen").style.display = "block";
     
     currentLetter = letter.charAt(Math.floor(Math.random() * letter.length));
-    document.getElementById("currentLette").innerText = currentLetter;
+    document.getElementById("currentLetter").innerText = currentLetter;
     document.getElementById("currentPlayer").innerText = currentPlayer;
     document.getElementById("word").value = "";
     
