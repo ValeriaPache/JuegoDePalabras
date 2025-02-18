@@ -62,3 +62,32 @@ function siguienteJugador() {
         mostrarResultados();
     }
 }
+function mostrarResultados() {
+    document.getElementById("pantallaJuego").style.display = "none";
+    document.getElementById("pantallaResultados").style.display = "block";
+    
+    let resultadosDiv = document.getElementById("resultados");
+    resultadosDiv.innerHTML = "";
+    
+    let maxPalabras = 0;
+    let ganador = "";
+
+    for (let i = 1; i <= jugadores; i++) {
+        let lista = `<h3>Jugador ${i}</h3>`;
+        lista += `<p>${palabras[i].join(", ")}</p>`;
+        lista += `<p>Total: ${palabras[i].length} palabras</p>`;
+        resultadosDiv.innerHTML += lista;
+
+        if (palabras[i].length > maxPalabras) {
+            maxPalabras = palabras[i].length;
+            ganador = `Jugador ${i}`;
+        }
+    }
+    
+    resultadosDiv.innerHTML += `<h2>GANADOR: ${ganador}</h2>`;
+}
+
+function reiniciarJuego() {
+    document.getElementById("pantallaResultados").style.display = "none";
+    document.getElementById("pantallaInicio").style.display = "block";
+}
