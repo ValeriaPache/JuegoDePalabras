@@ -68,24 +68,43 @@ function ShowResults() {
     
     let resultDiv = document.getElementById("results");
     resultDiv.innerHTML = "";
-    
+
+    let tableHTML = `<div class="tableContainer">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Jugador</th>
+                                    <th>Palabras</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
+
     let maxWords = 0;
     let winner = "";
 
     for (let i = 1; i <= players; i++) {
-        let list = `<h3>Jugador ${i}</h3>`;
-        list += `<p>${words[i].join(", ")}</p>`;
-        list += `<p>Total: ${words[i].length} palabras</p>`;
-        resultDiv.innerHTML += list;
+        tableHTML += `<tr>
+                        <td>Jugador ${i}</td>
+                        <td>${words[i].join(", ")}</td>
+                        <td>${words[i].length}</td>
+                    </tr>`;
 
         if (words[i].length > maxWords) {
             maxWords = words[i].length;
             winner = `Jugador ${i}`;
         }
     }
-    
+
+    tableHTML += `  </tbody>
+                  </table>
+                </div>`;
+
+    resultDiv.innerHTML = tableHTML;
     resultDiv.innerHTML += `<h2>GANADOR: ${winner}</h2>`;
 }
+
+
 
 function restartGame() {
     document.getElementById("resultScreen").style.display = "none";
