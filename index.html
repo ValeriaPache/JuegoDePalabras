@@ -1,57 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Palabras</title>
-    <link rel="stylesheet" href="Style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STOP MODERNO</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="containerBody">
-        <div class="screenStart" id="homeScreen">
-            <div class="containerTittlleStart">
-               <h1>STOP MODERNO</h1> 
-            </div>
-            <div class="containerFhrasesStart">
-                <p>¡JUEGA STOP MÁS FÁCIL Y SIN TRAMPAS!</p>
-            </div>
-            <div class="containerButtomStart">
-                <button onclick="showPlayersScreen()">JUGAR</button>
-            </div>
-            <div class="containerImgStart">
-                <img src="Assets/icons/ROBOT PURPLE.png" alt="Robot">
-            </div>  
-        </div>
+  <div class="screenStart" id="homeScreen">
+    <div class="containerTittleStart">
+      <h1>STOP MODERNO</h1>
+    </div>
+    <div class="containerFhrasesStart">
+      <p>¡JUEGA STOP MÁS FÁCIL Y SIN TRAMPAS!</p>
+    </div>
+    <div class="containerButtomStart">
+      <button onclick="showPlayersScreen()">JUGAR</button>
+    </div>
+    <div class="containerImgStart">
+      <img src="Assets/icons/ROBOT PURPLE.png" alt="Robot" />
+    </div>
+  </div>
 
-        <div id="playersScreen" style="display: none;" class="screenPlayers">
-            <div class="containerTittlePlayers">
-               <h2 class="namePlayers">JUGADORES</h2> 
-            </div>
-            <div class="containerButtomPlayers">
-                <button onclick="startGame(2)">2</button>
-                <button onclick="startGame(3)">3</button>
-                <button onclick="startGame(4)">4</button>
-            </div>
-        </div>
-        
-        <div id="gameScreen" style="display: none;" class="screenGame">
-            <h2 class="tittlePlayerGame">JUGADOR <span id="currentPlayer"></span></h2>
-            <p class="wordGame">LETRA: <span id="currentLetter"></span></p>
-            <p class="timeGame">Tiempo restante: <span id="remainingTime">60</span> segundos</p>
-            <div class="containerInputGame">
-                <input type="text" id="word" placeholder="Escribe una palabra">
-            </div>
-            <div class="buttonGame" >
-               <button onclick="registerWord()">AGREGAR PALABRA</button> 
-            </div>    
-        </div>
-        
-        <div id="resultScreen" style="display: none;" class="screenResult">
-            <h2 class="tittleResult">RESULTADOS</h2>
-            <div id="results" class="result"></div>
-            <div class="containerButtomRestartGame">
-                <button onclick="restartGame()">VOLVER A JUGAR</button>
-            </div>
-        </div>
-    <script src="index.js"></script>
+  <div id="playersScreen" style="display: none;" class="screenPlayers">
+    <div class="containerTittlePlayers">
+      <h2 class="namePlayers">JUGADORES</h2>
+    </div>
+    <div class="containerButtomPlayers">
+      <button onclick="startGame(2)">2</button>
+      <button onclick="startGame(3)">3</button>
+      <button onclick="startGame(4)">4</button>
+    </div>
+  </div>
+
+  <div id="gameScreen" style="display: none;" class="screenGame">
+    <h2 class="tittlePlayerGame">JUGADOR <span id="currentPlayer"></span></h2>
+    <p class="wordGame">LETRA: <span id="currentLetter"></span></p>
+    <p class="timeGame">Tiempo restante: <span id="remainingTime">60</span> segundos</p>
+    <div class="containerInputGame">
+      <input type="text" id="word" placeholder="Escribe una palabra" />
+    </div>
+    <div class="buttonGame">
+      <button onclick="registerWord()">AGREGAR PALABRA</button>
+    </div>
+  </div>
+
+  <div id="resultScreen" style="display: none;" class="screenResult">
+    <h2 class="tittleResult">RESULTADOS</h2>
+    <div id="results" class="result"></div>
+    <div class="containerButtomRestartGame">
+      <button onclick="restartGame()">VOLVER A JUGAR</button>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
