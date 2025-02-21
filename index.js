@@ -63,11 +63,37 @@ function showGameScreen() {
  * Registra la palabra si coincide con la letra actual
  */
 function registerWord() {
-  let word = document.getElementById("word").value.trim().toUpperCase();
-  if (word && word.startsWith(currentLetter)) {
-    words[currentPlayer].push(word);
-    document.getElementById("word").value = "";
-  }
+    let word = document.getElementById("word").value.trim().toUpperCase();
+
+    //verificar que la palabra no este vacia, empiece con la letra correcta y no este repetida
+    if (word && word.startsWith(currentLetter)) {
+        
+        //verificar si la palabra ya esta registrada por el jugador actual
+        if (words[currentPlayer].includes(word)) {
+            alert("Esta palabra ya ha sido registrada.");
+        } 
+       
+        //verificar si la palabra ya ha sido registrada por otro jugador
+        else {
+            let wordIsRepeated = false;
+            for (let i = 1; i <= players; i++) {
+                if (i !== currentPlayer && words[i].includes(word)) {
+                    wordIsRepeated = true;
+                    break;
+                }
+            }
+
+            if (wordIsRepeated) {
+                alert("Esta palabra ya ha sido registrada por otro jugador.");
+            } else {
+                //si la palabra no se repite, agregarla al jugador actual
+                words[currentPlayer].push(word);
+                document.getElementById("word").value = "";
+            }
+        }
+    } else {
+        alert("Por favor ingresa una palabra válida que empiece con la letra " + currentLetter);
+    }
 }
 
 /**
